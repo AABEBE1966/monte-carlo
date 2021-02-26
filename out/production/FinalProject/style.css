@@ -1,0 +1,173 @@
+.menu-bar {
+    -fx-background-color: #047B7F ;
+   /* -fx-opacity: 0.5;*/
+    -fx-border-width: 2.0;
+
+}
+.menu-bar .label {
+    -fx-font-size: 14.0 pt;
+    -fx-font-family: "Bookman Old Style";
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 10.0px;
+
+}
+
+/*.menu {*/
+/*    -fx-background-color:#F0F0F2;*/
+/*}*/
+
+/*.menu-bar .menu-button:hover, .menu-bar .menu-button:focused, .menu-bar .menu-button:showing {*/
+/*    -fx-background: #0E0EF1 ;*/
+/*    -fx-opacity: 0.5;*/
+/*    -fx-text-fill: white;*/
+/*}*/
+
+.menu-item {
+    -fx-padding: 0.0em 0.0em 0.0em 0.0em;
+    -fx-text-fill: white;
+    -fx-background: green ;
+}
+.menu-item .label{
+    -fx-font-size: 14.0 pt;
+    -fx-text-fill: black;
+}
+.menu-item .label:hover{
+    -fx-font-size: 14.0 pt;
+    -fx-background: #0E0EF1 ;
+    -fx-text-fill: white;
+}
+
+.combo-box-base {
+    -fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, white;
+    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+    -fx-background-radius: 3px, 3px, 2px, 1px;
+}
+
+.combo-box-popup .list-cell {
+    -fx-background-color: #047B7F;
+    -fx-text-fill: white;
+}
+
+
+.combo-box-popup .list-cell:hover {
+    -fx-background-color: #0E0EF1;
+    -fx-text-fill: white;
+}
+
+.tool-bar {
+    -fx-background-color:#047B7F;
+    -fx-text-fill:white;
+}
+
+#run_button,#Plot_button,#run_simulation_button,#run_analysis_button,#choose_working_directory,#directory_chooser_button {
+    -fx-background-color:
+            linear-gradient(#f0ff35, #a9ff00),
+            radial-gradient(center 50% -40%, radius 200%, #b8ee36 45%, #80c800 50%);
+    -fx-background-radius: 6, 5;
+    -fx-background-insets: 0, 1;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );
+    -fx-text-fill: white;
+}
+
+#pause_button,#Pause_plot_button,#pause_analysis_button,#pause_simulation_button {
+    -fx-background-color:
+            linear-gradient(#ffd65b, #e68400),
+            linear-gradient(#ffef84, #f2ba44),
+            linear-gradient(#ffea6a, #efaa22),
+            linear-gradient(#ffe657 0%, #f8c202 50%, #eea10b 100%),
+            linear-gradient(from 0% 0% to 15% 50%, rgba(255,255,255,0.9), rgba(255,255,255,0));
+    -fx-background-radius: 6, 5;
+    -fx-background-insets: 0, 1;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );
+    -fx-text-fill: white;
+}
+
+#stop_button,#Cancel_Button,#stop_simulation_button,#stop_analysis_button {
+    -fx-background-color: linear-gradient(#ff5400, #be1d00);
+    -fx-background-radius: 6, 5;
+    -fx-background-insets: 0, 1;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );
+    -fx-text-fill: white;
+}
+
+#load_button,#load_analysis_button,#load_simulation_button {
+    -fx-background-color:#9891F3;
+    -fx-background-radius: 6, 5;
+    -fx-background-insets: 0, 1;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );
+    -fx-text-fill: white;
+}
+
+/*#layersVBox {*/
+/*    -fx-background-color:*/
+/*            linear-gradient(#ffd65b, #e68400),*/
+/*            linear-gradient(#ffef84, #f2ba44),*/
+/*            linear-gradient(#ffea6a, #efaa22),*/
+/*            linear-gradient(#ffe657 0%, #f8c202 50%, #eea10b 100%),*/
+/*            linear-gradient(from 0% 0% to 15% 50%, rgba(255,255,255,0.9), rgba(255,255,255,0));*/
+/*    -fx-background-radius: 6, 5;*/
+/*    -fx-background-insets: 0, 1;*/
+/*    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );*/
+/*    -fx-text-fill: white;*/
+/*}*/
+
+.root {
+    -fx-background-color:#4B5FCA;
+}
+
+/*.tree-cell {*/
+/*    -fx-background-color:#0E0EF1;*/
+/*}*/
+
+.tree-cell:hover {
+    -fx-background-color: #0093ff ;
+}
+.tree-cell {
+    -fx-background-color: #047B7F ;
+    -fx-text-fill: white;
+}
+.tree-cell:hover .label {
+    /* styles... */
+    -fx-text-fill: white;
+
+}
+
+.label {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+    -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );
+}
+
+#choose_ratio_for_layers {
+    -fx-font-size: 20px;
+    -fx-fill: white;
+    -fx-background-color:#047B7F;
+    -fx-border-radius: 5;
+}
+
+#hboxProgressBar,#hboxProgressBar_analysis,#hboxProgressBar_simulation {
+    -fx-background-color:#14302D;
+    -fx-text-fill: red;
+}
+/* css for the directory chooser*/
+#directory_chooser{
+    -fx-background-size: 1200 900;
+    -fx-background-radius: 18 18 18 18;
+    -fx-border-radius: 18 18 18 18;
+    -fx-background-color: #0093ff;
+}
+/*.progress-bar .label{*/
+/*    -fx-text-fill: white;*/
+/*}*/
+.progress-indicator .percentage {
+    -fx-fill: white ;
+}
+
+/*#directory_chooser_button {*/
+/*    -fx-background-size: 1200 900;*/
+/*    -fx-background-radius: 5 5 5 5;*/
+/*    -fx-border-radius: 5 5 5 5;*/
+/*    -fx-background-color: #0093ff;*/
+/*}*/

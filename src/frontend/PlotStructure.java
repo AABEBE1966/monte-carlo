@@ -5,8 +5,11 @@ import javafx.scene.control.Separator;
 import javafx.scene.control.ToolBar;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
+import javafx.stage.FileChooser;
+import jdk.jfr.StackTrace;
 
-import java.io.IOException;
+import java.io.*;
+import java.util.logging.Logger;
 
 public class PlotStructure {
    public PlotStructure() {
@@ -30,18 +33,27 @@ public class PlotStructure {
 
         Button plot= new Button("Plot");
         plot.setOnAction(e->{
-            String commandString = "python /Users/abebeamare/Desktop/Desktop/spring2021/ECE493/FinalProject/computation/GradedStructureGenerator.py";
+           String str_file=chooseStr();
+           if(str_file!=null) {
+               String python_script = "/Users/abebeamare/Desktop/Desktop/spring2021/ECE493/FinalProject" +
+                       "/computation/PlotGraph.py";
+               ProcessBuilder processBuilder=new ProcessBuilder("python3",python_script,str_file);
+               System.out.println("starting processBuilder");
+               processBuilder.redirectErrorStream(true);
+               try {
+                   Process proc=processBuilder.start();
+                   Reader reader = new InputStreamReader(proc.getInputStream());
+                   BufferedReader bf = new BufferedReader(reader);
+                   String s;
+                   while ((s = bf.readLine()) != null) {
+                       System.out.println(s);
+                   }
+               } catch (IOException ioException) {
+                   ioException.printStackTrace();
+               }
+           }
 
-            try {
-                System.out.println("Process started");
-                Process process = Runtime.getRuntime().exec(commandString);
-               // process.wait();
-                process.onExit();
-                System.out.println("Process completed");
-                //BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-            } catch(IOException ex) {
-                System.out.println(ex.getMessage());
-            }
+
         });
         plot.setId("Plot_button");
         Button pause= new Button("Pause");
@@ -76,6 +88,29 @@ public class PlotStructure {
 //                BackgroundRepeat.NO_REPEAT,
 //                BackgroundPosition.CENTER,
 //                bSize)));
+
+    }
+    private String chooseStr() {
+        FileChooser fileChooser = new FileChooser();
+
+        //Set extension filter
+        FileChooser.ExtensionFilter extFilter = new
+                FileChooser.ExtensionFilter("ALL files (*.csv)", "*.csv");
+        fileChooser.getExtensionFilters().add(extFilter);
+
+        //Show open file dialog
+        try {
+            File file = fileChooser.showOpenDialog(MainWindow.MAIN_WINDOW);
+
+            String pathsInfo = "";
+            //pathsInfo += "getPath(): " + file.getPath() + "\n";
+            pathsInfo +=file.getAbsolutePath();
+
+            return  pathsInfo;
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        return null;
 
     }
 }

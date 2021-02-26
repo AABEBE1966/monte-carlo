@@ -9,9 +9,12 @@ and 3 layers of PCBM, for a coarsely graded "sandwich" structure
 import os
 from sys import argv
 
+
 import pandas as pd
 from multiprocessing import Pool, Process,Manager,Array
 import matplotlib.pyplot as plt
+#plt.use("TkAgg")
+
 import matplotlib.patches as mpatches
 
 from mpl_toolkits import mplot3d
@@ -61,7 +64,7 @@ class GradedStructureGenerator:
                 self.imported_csv_files[ratio_value]=pd.read_csv(file_path, header=None)
         print("pd.read_csv took %s seconds to load csv files" % (time.time() - start_time))
 
-def generate_structure(working_directory,process_id):
+def generate_structure(working_directory):
 
     processes=[]
     #os_count=os.cpu_count()*2 # it's taking longer than single process
@@ -83,7 +86,21 @@ def generate_structure(working_directory,process_id):
         process.join()
     code_file[3] = c
 
-    file_name = "structure"+str(process_id)+".csv"
+    # checking csv files
+    file_id=-1
+    for file in os.listdir(working_directory):
+        if file.endswith(".csv"):
+            arr=file.split("_")
+            if(len(arr)==3):
+                temp_id=int(arr[1])
+                if(temp_id>file_id):
+                    file_id=temp_id
+    if(file_id==-1):
+        file_id=0
+    else:
+        file_id=1
+
+    file_name = "structure_"+str(file_id)+"_.csv"
     code_file.to_csv(os.path.join(working_directory, file_name), header=False, index=False)
 
     fig = plt.figure(figsize=(5,4))
@@ -96,7 +113,8 @@ def generate_structure(working_directory,process_id):
     for i in range(0,len(class_colours)):
         recs.append(mpatches.Rectangle((0,0),1,1,fc=class_colours[i]))
     plt.legend(recs,classes,loc=1)
-    plt.title("Generated Photovoltaic cell.")
+    plt.title("structure_"+str(file_id))
+    plt.savefig(os.path.join(working_directory, "structure_"+str(file_id)+".png"))
     plt.show()
 
 def add_c_to_structure(idx,c,z,charges):
@@ -157,8 +175,9 @@ if __name__ == '__main__':
     path="/Users/abebeamare/Desktop/Desktop/spring2021/ECE493/FinalProject/src/data"
     #ratio_path=["0:1","0:1","0:1","1:2","1:1_","1:1_","1:1","1:1","2:1","1:0","1:0","1:0"]
     ratio_path=[argv[1],argv[2],argv[3],argv[4],argv[5],argv[6],argv[7],argv[8],argv[9],argv[10],argv[11],argv[12]];
+    working_path=argv[13]
 
-    process1 = GradedStructureGenerator(25, ratio_path, argv[13])
+    process1 = GradedStructureGenerator(25, ratio_path, working_path)
     c = Array('i',np.zeros(600000,'i'))
     c0 =process1.getChargeForLayeredFile(0)
     c1 =process1.getChargeForLayeredFile(1)
@@ -176,6 +195,6 @@ if __name__ == '__main__':
     code_file=process1.getCodeFile()
     start_time = time.time()
 
-    generate_structure(path,26)
+    generate_structure(working_path)
 
     print("add c to str took in total %s seconds" % (time.time() - start_time))

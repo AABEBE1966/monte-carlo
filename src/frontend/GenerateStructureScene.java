@@ -90,7 +90,7 @@ public class GenerateStructureScene {
         Button run= new Button("Run");
         run.setId("run_button");
         run.setOnAction(e-> {
-            String python_script = "/Users/abebeamare/Desktop/Desktop/spring2021/ECE493/FinalProject" +
+            String python_script =System.getProperty("user.dir")  +
                     "/computation/GradedStructureGenerator.py";
             ProcessBuilder processBuilder=new ProcessBuilder("python3",python_script,layer1.getValue().toString()
                     ,layer2.getValue().toString(),layer3.getValue().toString(),layer4.getValue().toString(),

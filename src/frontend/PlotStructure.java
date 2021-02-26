@@ -35,7 +35,7 @@ public class PlotStructure {
         plot.setOnAction(e->{
            String str_file=chooseStr();
            if(str_file!=null) {
-               String python_script = "/Users/abebeamare/Desktop/Desktop/spring2021/ECE493/FinalProject" +
+               String python_script = System.getProperty("user.dir") +
                        "/computation/PlotGraph.py";
                ProcessBuilder processBuilder=new ProcessBuilder("python3",python_script,str_file);
                System.out.println("starting processBuilder");

@@ -22,21 +22,27 @@ public class MainMenuBar {
             GenerateStructureScene generateStr = new GenerateStructureScene();
             generateStr.setStructureGenerateScene();
         });
-        MenuItem m2 = new MenuItem("Run simulation");
-        m2.setOnAction(e->{
+        MenuItem m2=new MenuItem("GenerateOpricalMicroscale");
+        m2.setOnAction(e -> {
+            OpticalGenerationMicroscale opricalMicroscale = new OpticalGenerationMicroscale();
+            opricalMicroscale.setOpticalGenerationMicroScaleScene();
+        });
+
+        MenuItem m3 = new MenuItem("Run simulation");
+        m3.setOnAction(e->{
             RunSimulation RS=new RunSimulation();
             RS.setRunSimulationScene();
         });
 
-        MenuItem m3 = new MenuItem("Run analysis");
-        m3.setOnAction(e->{
+        MenuItem m4 = new MenuItem("Run analysis");
+        m4.setOnAction(e->{
             RunAnalysis Rs=new RunAnalysis();
             Rs.setRunSynthesisScene();
         });
 
 
 
-        file.getItems().addAll(m0, m1, m2, m3);
+        file.getItems().addAll(m0, m1, m2, m3,m4);
 
         Menu help = new Menu("Help");
 

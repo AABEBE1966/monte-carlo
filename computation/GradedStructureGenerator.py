@@ -86,6 +86,10 @@ def generate_structure(working_directory):
         process.join()
     code_file[3] = c
 
+    if not os.path.exists(working_directory+'/structures'):
+        os.makedirs(working_directory+'/structures')
+    working_directory=working_directory+'/structures'
+
     # checking csv files
     file_id=-1
     for file in os.listdir(working_directory):
@@ -98,7 +102,7 @@ def generate_structure(working_directory):
     if(file_id==-1):
         file_id=0
     else:
-        file_id=1
+        file_id+=1
 
     file_name = "structure_"+str(file_id)+"_.csv"
     code_file.to_csv(os.path.join(working_directory, file_name), header=False, index=False)

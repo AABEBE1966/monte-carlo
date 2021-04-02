@@ -94,7 +94,7 @@ class OpticalGenerationMicroscale:
         # empty csv files
         self.file_path=file_path
         self.z_morphblend = np.array(pd.read_csv(
-            "/Users/abebeamare/Desktop/Desktop/spring2021/ECE493/FinalProject/src/data/z_morphblend3.csv",header=None))  # will be removed
+            "/data/z_morphblend3.csv",header=None))  # will be removed
         #print(len(self.z_morphblend))
         #print(self.z_morphblend[0])
         #print(self.z_morphblend[599998])
@@ -108,7 +108,7 @@ class OpticalGenerationMicroscale:
         self.blend_morphology = np.array(pd.read_csv(file_path, header=None))
 
     def multi_process(self,n):
-        #print("started loop number "+str(n))
+        print("started loop number "+str(n))
         pi = np.pi
 
         T = 0

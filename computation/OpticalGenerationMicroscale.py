@@ -94,10 +94,11 @@ class OpticalGenerationMicroscale:
         # empty csv files
         self.file_path=file_path
         self.z_morphblend = np.array(pd.read_csv(
-            "/data/z_morphblend3.csv",header=None))  # will be removed
+            "src/data/z_morphblend3.csv",header=None))  # will be removed
+
         #print(len(self.z_morphblend))
         #print(self.z_morphblend[0])
-        #print(self.z_morphblend[599998])
+        print(self.z_morphblend[599998])
         self.working_directory=working_directory
         self.d_morphblend = 100
         self.d_ITO = 100
@@ -280,7 +281,7 @@ class OpticalGenerationMicroscale:
             exci_gen_morphblend = 0
 
         return (Rstar, R, Tstar,T,total_ex_gen_morphblend)
-    def run(self):
+    def run_all(self):
         self.update_values_before_write()
         self.computed_values()
         self.five_columns_canvas_generator()
@@ -337,5 +338,7 @@ class OpticalGenerationMicroscale:
 if __name__ == '__main__':
     file_path=argv[1]
     working_directory=argv[2]
+    print(file_path)
+    print(working_directory)
     microscale=OpticalGenerationMicroscale(file_path,working_directory)
-    microscale.run()
+    microscale.run_all()

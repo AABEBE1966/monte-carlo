@@ -8,6 +8,13 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
+import javafx.stage.DirectoryChooser;
+import javafx.stage.FileChooser;
+import model.AllSimulation;
+import model.MonteCarloMain;
+
+import javax.swing.*;
+import java.io.*;
 
 public class RunSimulation {
     public RunSimulation() {
@@ -31,6 +38,16 @@ public class RunSimulation {
         );
 
         Button run= new Button("Run");
+        run.setOnAction(e->{
+            String folderPath=chooseStr();
+            if(folderPath!=null) {
+
+                AllSimulation all=new AllSimulation(folderPath);
+                all.runAllSimulations();
+                System.out.println("Getting started with Monte Carlo simulation");
+            }
+        });
+
         run.setId("run_simulation_button");
         Button pause= new Button("pause");
         pause.setId("pause_simulation_button");
@@ -74,5 +91,21 @@ public class RunSimulation {
         hboxProgressBar.setId("hboxProgressBar_simulation");
         MainWindow.MAIN_LAYOUT.setBottom(hboxProgressBar);
 
+    }
+
+
+    private String chooseStr() {
+
+        DirectoryChooser directoryChooser = new DirectoryChooser();
+        directoryChooser.setInitialDirectory(new File(System.getProperty("user.home")));
+
+        //Show open file dialog
+        try {
+            File file = directoryChooser.showDialog(MainWindow.MAIN_WINDOW);
+            return  file.getAbsolutePath();
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

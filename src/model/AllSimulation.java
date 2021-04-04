@@ -14,7 +14,6 @@ public class AllSimulation {
     }
 
     public void runAllSimulations() {
-        MonteCarloMain monteCarloOne=new MonteCarloMain();
         List<String> filenames=getAllCsvFiles();
         for(int i=0; i<filenames.size(); i++) {
             String temp=filenames.get(i);

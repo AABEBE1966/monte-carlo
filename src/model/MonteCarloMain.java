@@ -6,12 +6,13 @@ import java.io.IOException;
 
 public class MonteCarloMain {
 
-	public static void main(String args[]) {
-
-		AllSimulation all=new AllSimulation("/Users/abebeamare/Desktop/Desktop/Fall2020/ece493/SRLabMonteCarloCode/microscales");
+	public MonteCarloMain(String folderPath) {
+		AllSimulation all=new AllSimulation(folderPath);
 		all.runAllSimulations();
 		System.out.println("Getting started with Monte Carlo simulation");
 	}
+
+
 //		MonteCarloDriver simulation = null;
 //		try {
 //		simulation = new MonteCarloDriver();

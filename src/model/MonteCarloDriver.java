@@ -48,7 +48,9 @@ public class MonteCarloDriver {
 	}
 
 	public void runSimulation() throws IOException {
-		FileWriter create = new FileWriter("output.csv");
+		String output=this.csvFilePath.substring(0, this.csvFilePath.lastIndexOf('.'))+"output2.csv";
+
+		FileWriter create = new FileWriter(output);
 		PrintWriter out = new PrintWriter(create);
 		out.println("Time, Num Carriers, CC CE, CC RE, #H C , #El C, #Ex C, #Ex D");
 		int[] exciloc = ExciGenerator.genExciton(xdim, ydim);
@@ -91,12 +93,13 @@ public class MonteCarloDriver {
 			double[] rhotime = rhos.get(i);
 			out.printf("%d, %d", rhotime[0], rhotime[1]);
 		}
+		System.out.println("simulation completed running for csv "+this.csvFilePath);
 		out.close();
 	}
 
 	private void printStuff(PrintWriter out) {
-		System.out.printf("%f, %d, %d, %d, %d, %d, %d, %d \n", Time, numCarriers, CCEvent, CCRecomb, holesCollected,
-				electronsCollected, excitonsCreated, excitonsDissociated);
+//		System.out.printf("%f, %d, %d, %d, %d, %d, %d, %d \n", Time, numCarriers, CCEvent, CCRecomb, holesCollected,
+//				electronsCollected, excitonsCreated, excitonsDissociated);
 		out.printf("%f, %d, %d, %d, %d, %d, %d, %d \n", Time, numCarriers, CCEvent, CCRecomb, holesCollected,
 				electronsCollected, excitonsCreated, excitonsDissociated);
 		// out.close();

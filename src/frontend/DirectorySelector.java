@@ -1,6 +1,7 @@
 package frontend;
 
 import javafx.beans.property.StringProperty;
+
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;

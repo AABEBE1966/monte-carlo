@@ -95,10 +95,9 @@ class OpticalGenerationMicroscale:
         self.file_path=file_path
         self.z_morphblend = np.array(pd.read_csv(
             "src/data/z_morphblend3.csv",header=None))  # will be removed
-
         #print(len(self.z_morphblend))
-        #print(self.z_morphblend[0])
-        print(self.z_morphblend[599998])
+        print(self.z_morphblend[0])
+        #print(self.z_morphblend[599998])
         self.working_directory=working_directory
         self.d_morphblend = 100
         self.d_ITO = 100
@@ -281,16 +280,19 @@ class OpticalGenerationMicroscale:
             exci_gen_morphblend = 0
 
         return (Rstar, R, Tstar,T,total_ex_gen_morphblend)
-    def run_all(self):
+    def run(self):
         self.update_values_before_write()
         self.computed_values()
         self.five_columns_canvas_generator()
+        self.plotting()
 
     def update_values_before_write(self):
         val=25
+        print("Inside update value")
         pool = multiprocessing.Pool(processes = val)
-        self.all_tuples=pool.map(self.multi_process, range(25))
+        self.all_tuples=pool.map(self.multi_process, range(val))
     def computed_values(self):
+        print("Inside compute values")
         val=25
         self.T = np.zeros(val)
         self.R = np.zeros(val)
@@ -306,6 +308,7 @@ class OpticalGenerationMicroscale:
             self.total_ex_gen_morphblend_all[i]=all_tuples[i][4]
 
     def five_columns_canvas_generator(self):
+        print("Insider ")
         name=os.path.basename(self.file_path)
         name="/"+name.split(".")[0]
         if not os.path.exists(self.working_directory+'/structures'):
@@ -338,7 +341,6 @@ class OpticalGenerationMicroscale:
 if __name__ == '__main__':
     file_path=argv[1]
     working_directory=argv[2]
-    print(file_path)
-    print(working_directory)
     microscale=OpticalGenerationMicroscale(file_path,working_directory)
-    microscale.run_all()
+    print("about to run")
+    microscale.run()

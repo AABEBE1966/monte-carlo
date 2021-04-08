@@ -69,6 +69,10 @@ public class MonteCarloDriver {
 
 			// parse event and add new events
 			processEvent(temp, out);
+			if(CCEvent%120==0 && CCEvent!=0) {
+				System.out.println("Reached CCEvent "+CCEvent);
+			}
+
 			double rho = 1;
 			if (CCEvent > 0 && (CCEvent % 50) == 0 && (counter - CCEvent) != 0) {
 				counter = CCEvent;
@@ -76,6 +80,7 @@ public class MonteCarloDriver {
 				System.out.println(rho);
 				double[] rhotime = { Time, rho };
 				rhos.add(rhotime);
+				System.out.println(" Prcess Event finihsed "+CCEvent);
 			}
 		}
 		// while (CCEvent < 201) {

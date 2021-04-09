@@ -167,7 +167,8 @@ public class GenerateStructureScene {
     }
 
     private ComboBox getRatioLists() {
-        String[] ratios = {"1:1", "1:2", "1:3", "1:3", "1:4", "2:1", "3:1", "4:1", "2:3", "3:2", "3:4", "4:3"};
+        String[] ratios = {"1:0","0:1","1:1", "1:2", "1:3", "1:3", "1:4", "2:1", "3:1", "4:1", "2:3", "3:2", "3:4",
+                "4:3"};
         ComboBox ratioComboBox = new ComboBox(FXCollections
                 .observableArrayList(ratios));
         ratioComboBox.setEditable(true);

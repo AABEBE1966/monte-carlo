@@ -58,9 +58,11 @@ public class MonteCarloDriver {
 		eventQueue.add(excigen);
 		int counter = 0;
 		ArrayList<double[]> rhos = new ArrayList<double[]>();
+		System.out.println("Initial Event queue size "+eventQueue.size());
 		while (eventQueue.size() > 0 && CCEvent < 4001) // Pop events if there is one to pop.
 		{
 			Event temp = eventQueue.poll();
+
 
 			// update times
 			double time = temp.getTime();
@@ -69,8 +71,10 @@ public class MonteCarloDriver {
 
 			// parse event and add new events
 			processEvent(temp, out);
-			if(CCEvent%120==0 && CCEvent!=0) {
+			if(CCEvent%200==0 && CCEvent!=0) {
 				System.out.println("Reached CCEvent "+CCEvent);
+				System.out.println("Current Event queue size "+eventQueue.size());
+				System.out.println("Current CCEvent "+CCEvent);
 			}
 
 			double rho = 1;
@@ -105,8 +109,8 @@ public class MonteCarloDriver {
 	private void printStuff(PrintWriter out) {
 //		System.out.printf("%f, %d, %d, %d, %d, %d, %d, %d \n", Time, numCarriers, CCEvent, CCRecomb, holesCollected,
 //				electronsCollected, excitonsCreated, excitonsDissociated);
-		out.printf("%f, %d, %d, %d, %d, %d, %d, %d \n", Time, numCarriers, CCEvent, CCRecomb, holesCollected,
-				electronsCollected, excitonsCreated, excitonsDissociated);
+//		out.printf("%f, %d, %d, %d, %d, %d, %d, %d \n", Time, numCarriers, CCEvent, CCRecomb, holesCollected,
+//				electronsCollected, excitonsCreated, excitonsDissociated);
 		// out.close();
 	}
 

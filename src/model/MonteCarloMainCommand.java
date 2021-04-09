@@ -6,17 +6,17 @@ import java.io.IOException;
 
 public class MonteCarloMainCommand {
 
-    //    public MonteCarloMainCommand(String folderPath) {
-//        AllSimulation all=new AllSimulation(folderPath);
-//        all.runAllSimulations();
-//        System.out.println("Getting started with Monte Carlo simulation");
-//    }
-    public static void main(String[] args) {
-        System.out.println(args[0]);
-        AllSimulation all=new AllSimulation(args[0]);
+        public MonteCarloMainCommand() {
+        AllSimulation all=new AllSimulation("/Users/abebeamare/Desktop/Desktop/spring2021/ECE493/FinalProject/src/data/microscales/strs_command");
         all.runAllSimulations();
         System.out.println("Getting started with Monte Carlo simulation");
     }
+//    public static void main(String[] args) {
+//        System.out.println(args[0]);
+//        AllSimulation all=new AllSimulation(args[0]);
+//        all.runAllSimulations();
+//        System.out.println("Getting started with Monte Carlo simulation");
+//    }
 
 //		MonteCarloDriver simulation = null;
 //		try {

@@ -11,5 +11,12 @@ please read this document to understand how the code works and the function of e
 - Once you added both Python and Java, you should have module structures as follow. 
 <img width="947" alt="Screen Shot 2021-09-26 at 8 03 17 PM" src="https://user-images.githubusercontent.com/42746765/134839522-2a4ef0fa-71e2-4325-bde4-806dcc26b5fb.png">
 
+- Add [javaFX](https://javabook.bloomu.edu/setup.html) to intelliji. We use JavaFX to write the UI, pure java to do the simulation and Python to do the computation needed in each of the process in the simulation. 
+
 - Once you have all modules and libraries installed, open Main.java and click ```Run```.
 
+
+## Tips
+
+- Please delete any of the .class files as they are generated when I run my codes
+- Please go over my thesis to understand how the frontend, and backend works. 

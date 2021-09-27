@@ -11,5 +11,5 @@ please read this document to understand how the code works and the function of e
 - Once you added both Python and Java, you should have module structures as follow. 
 <img width="947" alt="Screen Shot 2021-09-26 at 8 03 17 PM" src="https://user-images.githubusercontent.com/42746765/134839522-2a4ef0fa-71e2-4325-bde4-806dcc26b5fb.png">
 
-- Once you have all modules and libraries installed, click on ```Run``` 
+- Once you have all modules and libraries installed, open Main.java and click ```Run```.
 

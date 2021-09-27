@@ -20,3 +20,9 @@ please read this document to understand how the code works and the function of e
 
 - Please delete any of the .class files as they are generated when I run my codes
 - Please go over my thesis to understand how the frontend, and backend works. 
+- I highly recommend to keep the backend code which is the model module and use react for fronend. By making the software a web app, you can avoid waiting for four hours to finish running one simulationa and analysis. I suggest you can build the backend using the model and compuation modules and build a the UI in react. You can then deploy it on heroku. The advantage of making the software web based, you do not have to install all this packages whenever you change machines. In addtion, you can start a process on the web and turn of your local computer since the server will still be running. You can read more about [this](https://medium.com/bb-tutorials-and-thoughts/how-to-develop-and-build-react-app-with-java-backend-c1e6c5c93ae)
+
+## How to contact me
+
+- Please feel free to send me an email to aabebe1966@gmail.com
+- give me a call on weekends to 9197717649

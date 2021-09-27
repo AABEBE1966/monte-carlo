@@ -1,5 +1,5 @@
 # monte-carlo
-please read this document to understand how the code works and the function of each modules in the file tree.
+please read [this](https://docs.google.com/document/d/14hTanSfrKYtWBnYRHST_0IQaT1cAlA967QoGBimaE7g/edit?usp=sharing) document to understand how the code works and the function of each modules in the file tree.
 
 ### How does the code works
 - We use process builder to call python code base that does the computation in java. Please [read](https://www.baeldung.com/java-working-with-python) how we can call python function from java. 
@@ -19,7 +19,7 @@ please read this document to understand how the code works and the function of e
 ## Tips
 
 - Please delete any of the .class files as they are generated when I run my codes
-- Please go over my thesis to understand how the frontend, and backend works. 
+- Please go over my [thesis](https://docs.google.com/document/d/14hTanSfrKYtWBnYRHST_0IQaT1cAlA967QoGBimaE7g/edit?usp=sharing) to understand how the frontend, and backend works. 
 - I highly recommend to keep the backend code which is the model module and use react for fronend. By making the software a web app, you can avoid waiting for four hours to finish running one simulationa and analysis. I suggest you can build the backend using the model and compuation modules and build a the UI in react. You can then deploy it on heroku. The advantage of making the software web based, you do not have to install all this packages whenever you change machines. In addtion, you can start a process on the web and turn of your local computer since the server will still be running. You can read more about [this](https://medium.com/bb-tutorials-and-thoughts/how-to-develop-and-build-react-app-with-java-backend-c1e6c5c93ae)
 
 ## How to contact me
